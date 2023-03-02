@@ -160,15 +160,9 @@ const Book = () => {
       SEND_EMAIL(customerDetails)
       setIsOpen2(false);
     }, 1000);
-
-    refreshPage();
+   
   };
 
-  function refreshPage() {
-    setTimeout(function () {
-      window.location.reload(false); // Reloads the current page
-    }, 2000);
-  }
 
   const handleSubmitPayment = () => {
     setTimeout(() => {
