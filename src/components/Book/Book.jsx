@@ -2,6 +2,7 @@ import "./Book.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
+import SEND_EMAIL from "../SendEmail";
 
 Modal.setAppElement("#root");
 
@@ -113,7 +114,6 @@ const Book = () => {
 
     setcustomerDetails(details);
     
-    
     setTimeout(() => setIsOpen(true), 1000);
   };
 
@@ -157,6 +157,7 @@ const Book = () => {
 
     setTimeout(() => {
       alert("Your room has been booked...")
+      SEND_EMAIL(customerDetails)
       setIsOpen2(false);
     }, 1000);
 
