@@ -49,7 +49,7 @@ const Edit = () => {
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 

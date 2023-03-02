@@ -21,6 +21,7 @@ const Checkout = () => {
     }
 
     setTimeout(() => refreshPage(), 2000);
+    alert("Checked out!")
   };
 
   const refreshPage = () => {
@@ -35,7 +36,7 @@ const Checkout = () => {
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 

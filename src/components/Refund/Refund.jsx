@@ -7,6 +7,7 @@ const Refund = () => {
 
   const [amountSendBack, setamountSendBack] = useState();
 
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -15,7 +16,7 @@ const Refund = () => {
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
@@ -39,14 +40,9 @@ const Refund = () => {
     setamountSendBack(amountvalue);
   };
 
-  const refundAmount = () => {
-    setamountSendBack(-amountSendBack);
-    setTimeout(() => sendAmountBack(), 500);
-  };
-
-  const sendAmountBack = () => {
+  const sendAmountBack = (val) => {
     async function setTotalPrice() {
-      const totalAmount = amountSendBack;
+      const totalAmount = val * amountSendBack;
       try {
         const response = await axios.post(
           "https://serverhillsidehaven-production.up.railway.app/bookingDetails/updateDetails",
@@ -92,14 +88,14 @@ const Refund = () => {
             <button
               className="btn btn-success"
               type="submit"
-              onClick={() => sendAmountBack()}
+              onClick={() => sendAmountBack(1)}
             >
               Pay
             </button>
             <button
               className="btn btn-danger"
               type="submit"
-              onClick={() => refundAmount()}
+              onClick={() => sendAmountBack(-1)}
             >
               Refund
             </button>

@@ -24,6 +24,7 @@ const Book = () => {
     new Date().toISOString().split("T")[0]
   );
 
+
   const [checkReturnRequirement, setcheckReturnRequirement] = useState(false);
 
   const [customerDetails, setcustomerDetails] = useState({
@@ -87,7 +88,7 @@ const Book = () => {
     };
 
     await checkOverlappingBooking(details)
-        
+  
     if(checkReturnRequirement){
       alert("Rooms and timings are overlaping please check previous bookings")
       return;
@@ -111,7 +112,8 @@ const Book = () => {
     details["totalAmount"] = sum;
 
     setcustomerDetails(details);
-
+    
+    
     setTimeout(() => setIsOpen(true), 1000);
   };
 

@@ -24,7 +24,7 @@ const Home = () => {
         );
         setDataBooking(response.data.data[0]);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
@@ -50,7 +50,7 @@ const Home = () => {
         );
         setToatlbookings(response.data.data.length);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
@@ -58,7 +58,6 @@ const Home = () => {
   },[])
   
   
-// console.log(customerDetails[0]?.startTime?.split("T")[0])
   const displayCustomerDetails =
     customerDetails != null &&
     Object.entries(customerDetails).map(([key, item]) => (
