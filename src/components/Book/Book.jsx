@@ -165,7 +165,7 @@ const Book = () => {
 
   function refreshPage() {
     setTimeout(function () {
-      window.location.href = window.location.href; // Reloads the current page
+      window.location.reload(false); // Reloads the current page
     }, 2000);
   }
 

@@ -24,7 +24,7 @@ const Checkout = () => {
   };
 
   const refreshPage = () => {
-    window.location.href = window.location.href; 
+    window.location.reload(false);
   };
 
   useEffect(() => {
