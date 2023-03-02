@@ -2,6 +2,7 @@ import emailjs from '@emailjs/browser';
 
 const SendEmail = (details) => {
 
+
     const sendDetails = {
         user_email: details?.email,
         to_name: details?.name,
@@ -20,14 +21,12 @@ const SendEmail = (details) => {
         return formattedDate;
     }
 
-    // console.log(sendDetails)
-
    
     emailjs.send('service_l9n7bhl', 'template_e50e4vo', sendDetails, 'yp6Lay4zN6QYziZw3')
         .then((result) => {
-            console.log(result.text);
+            console.log(result.text)
         }, (error) => {
-            console.error(error.text);
+            console.error(error.text)
         })
 
 }
