@@ -146,7 +146,7 @@ const Home = () => {
         <h4>Filter(s)</h4>
         <div className="filter-select">
           <select
-            class="form-select form-select-sm"
+            className="form-select form-select-sm"
             aria-label=".form-select-sm example"
             onChange={handleRoomType}
           >

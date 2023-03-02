@@ -197,17 +197,17 @@ const Cancel = () => {
 
         <Modal isOpen={modalIsOpen2} style={customStyles}>
           <aside className="payment-penalty">
-            <ul class="list-group">
-              <li class="list-group-item">Penalty amount: ₹ {penaltyAmount}</li>
-              <li class="list-group-item">Refund amount: ₹ {penaltyCustomer?.totalAmount - penaltyAmount}</li>
+            <ul className="list-group">
+              <li className="list-group-item">Penalty amount: ₹ {penaltyAmount}</li>
+              <li className="list-group-item">Refund amount: ₹ {penaltyCustomer?.totalAmount - penaltyAmount}</li>
             </ul>
 
-            <div class="mb-3">
-              <label for="refundAmount" class="form-label-sm">
+            <div className="mb-3">
+              <label for="refundAmount" className="form-label-sm">
                 Refund
               <input
                 type="number"
-                class="form-control"
+                className="form-control"
                 id="refundAmount"
                 placeholder="Enter refund amount..."
                 onChange={handleChangeAmount}

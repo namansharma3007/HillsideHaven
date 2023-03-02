@@ -88,8 +88,6 @@ const Book = () => {
 
     await checkOverlappingBooking(details)
         
-
-    // console.log(checkReturnRequirement);
     if(checkReturnRequirement){
       alert("Rooms and timings are overlaping please check previous bookings")
       return;
@@ -189,7 +187,7 @@ const Book = () => {
       startTime: formatDate(newBooking.startTime),
       endTime: formatDate(newBooking.endTime),
     };
-    // console.log(data);
+
     const response = await axios.post(
       "https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsFilter",
       data
@@ -383,7 +381,7 @@ const Book = () => {
       <Modal style={customStyles} isOpen={isOpen2}>
         <div className="payment-display-total">
           <select
-            class="form-select form-select-sm"
+            className="form-select form-select-sm"
             aria-label=".form-select-sm example"
             required
           >
@@ -396,8 +394,8 @@ const Book = () => {
             <option value="PhonePe">PhonePe</option>
           </select>
 
-          <ul class="list-group">
-            <li class="list-group-item">
+          <ul className="list-group">
+            <li className="list-group-item">
               Total amount: ₹ {customerDetails.totalAmount}
             </li>
           </ul>
