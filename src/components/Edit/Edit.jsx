@@ -22,9 +22,11 @@ const Edit = () => {
 
   const [customerDetails, setcustomerDetails] = useState({});
 
-  const [sendDetais, setsendDetaise] = useState({});
+  const [sendDetails, setsendDetails] = useState({});
 
   const [displayDetails, setDisplayDetails] = useState({});
+
+  const [selectedUserMail, setselectedUserMail] = useState();
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -36,7 +38,7 @@ const Edit = () => {
       adhaarCard: formData.get("exampleInputAdhaar"),
       phoneNo: formData.get("exampleInputMobile"),
     };
-    setsendDetaise(details);
+    setsendDetails(details);
   };
 
   useEffect(() => {
@@ -56,18 +58,17 @@ const Edit = () => {
 
   const setAndOpen = (email, adhaarCard, address, phoneNo) => {
     setDisplayDetails({ email, adhaarCard, address, phoneNo });
+    setselectedUserMail(email)
     setIsOpen(true);
   };
 
-  const sendValues = () => {
-    console.log(sendDetais)
+  const sendValues = async () => {
     const data = {
-      email: sendDetais.email,
-      phoneNo: parseInt(sendDetais.phoneNo),
-      address: sendDetais.address,
-      adhaarCard: parseInt(sendDetais.adhaarCard),
+      email: sendDetails?.email,
+      phoneNo: parseInt(sendDetails?.phoneNo),
+      address: sendDetails?.address,
+      adhaarCard: parseInt(sendDetails?.adhaarCard),
     };
-    console.log(data);
     async function changeDetails() {
       try {
         const response = await axios.post(
@@ -140,10 +141,10 @@ const Edit = () => {
               </label>
               <input
                 type="email"
-                className="form-control"
+                className="form-control bg-danger-subtle"
                 id="exampleInputEmail1"
                 name="exampleInputEmail1"
-                // onChange={handleChange}
+                value={selectedUserMail}
               />
             </div>
             <div className="mb-3">
