@@ -1,6 +1,7 @@
+import "./Navbar.css";
 import React from "react";
 import { Link } from "react-router-dom";
-
+import IMG from '../../assets/images/iconImg.jpg';
 const Sidebar = () => {
   return (
     <nav
@@ -8,9 +9,10 @@ const Sidebar = () => {
       data-bs-theme="dark"
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand nav-icon-name" to={`/`} title="Home">
+          <img src={IMG} alt="" className="rounded icon-image"/>
           Hillside Heaven
-        </a>
+        </Link>
         <button
           className="navbar-toggler bg-secondary"
           type="button"
