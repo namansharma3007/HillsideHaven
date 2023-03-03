@@ -25,7 +25,6 @@ const Book = () => {
     new Date().toISOString().split("T")[0]
   );
 
-  const [checkReturnRequirement, setcheckReturnRequirement] = useState(false);
 
   const [customerDetails, setcustomerDetails] = useState({
     name: "",

@@ -38,3 +38,6 @@ This is a hotel management website built using React and Node.js. The website al
 * Cancel a booking by selecting the booking from the list and clicking the cancel button.
 * Process a checkout by selecting the booking from the list and clicking the checkout button.
 * Process a refund by selecting the booking from the list and clicking the refund button.
+
+### Important Note
+In order to run this application on the server I have created, you must update all instances of the URL <code>https://serverhillsidehaven-production.up.railway.app/</code> to <code>http://localhost:3007/</code>. This is necessary for the application to function properly on the server. However, please note that the application will still run without this change, but it will not be using the server that I have created. Instead, it will use a hosted API link. Therefore, please make the necessary changes based on your specific requirements.
