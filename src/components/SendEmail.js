@@ -21,13 +21,18 @@ const SendEmail = (details) => {
         return formattedDate;
     }
 
-   
+
     emailjs.send('service_l9n7bhl', 'template_e50e4vo', sendDetails, 'yp6Lay4zN6QYziZw3')
         .then((result) => {
-            console.log(result.text)
+            alert("Mail has been sent!")
+            setTimeout(() => refreshPage(), 1000)
         }, (error) => {
             console.error(error.text)
         })
+
+    const refreshPage = () => {
+        window.location.reload(false);
+    };
 
 }
 

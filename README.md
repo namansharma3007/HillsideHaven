@@ -40,4 +40,4 @@ This is a hotel management website built using React and Node.js. The website al
 * Process a refund by selecting the booking from the list and clicking the refund button.
 
 ### Note
-Due to the slow fetching of data from the database, it may take some time to update the booking details. You may need to click on "Check Details" then cross output, again click on "Check Details" in order to get filtered details and also please confirm with customer weather he/she has received confirmation mail or not prior refreshing the page.
+Due to the slow fetching of data from the database, it may take some time to update the booking details. You may need to click on "Check Details" then cross output, again click on "Check Details" in order to get filtered details.
