@@ -63,6 +63,29 @@ const Book = () => {
       </div>
     );
   }
+  
+  const checkOverlappingBooking = async (newBooking) => {
+    const data = {
+      roomType: "",
+      roomNos: newBooking.rooms.map((room) => room.slice(0)).join(","),
+      startTime: formatDate(newBooking.startTime),
+      endTime: formatDate(newBooking.endTime),
+    };
+
+    var response;
+    try{
+      response = await axios.post(
+        "https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsFilter",
+        data
+      );
+        console.log(response.data.data)
+    } catch(err){
+      console.err(err)
+    }
+    const existingBookings = response.data.data;
+    
+    return existingBookings;
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -87,9 +110,10 @@ const Book = () => {
       rooms: rooms,
     };
 
-    await checkOverlappingBooking(details)
+    const dataReceivedFilterd = await checkOverlappingBooking(details)
+    
   
-    if(checkReturnRequirement){
+    if(dataReceivedFilterd.length > 0){
       alert("Rooms and timings are overlaping please check previous bookings")
       return;
     }
@@ -175,28 +199,6 @@ const Book = () => {
     const formattedDate = `${year}-${month}-${day}`;
     return formattedDate;
   }
-  const checkOverlappingBooking = async (newBooking) => {
-    const data = {
-      roomType: "",
-      roomNos: newBooking.rooms.map((room) => room.slice(0)).join(","),
-      startTime: formatDate(newBooking.startTime),
-      endTime: formatDate(newBooking.endTime),
-    };
-
-    const response = await axios.post(
-      "https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsFilter",
-      data
-    );
-    const existingBookings = response.data.data;
-
-    if (existingBookings.length > 0) {
-      setcheckReturnRequirement(true)
-      
-    } else {
-      setcheckReturnRequirement(false)
-      
-    }
-  };
 
   return (
     <section className="container-fluid">
