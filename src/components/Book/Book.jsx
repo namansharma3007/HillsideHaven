@@ -77,7 +77,6 @@ const Book = () => {
         "https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsFilter",
         data
       );
-        console.log(response.data.data)
     } catch(err){
       console.err(err)
     }
@@ -135,8 +134,7 @@ const Book = () => {
     details["totalAmount"] = sum;
 
     setcustomerDetails(details);
-    
-    setTimeout(() => setIsOpen(true), 1000);
+    setIsOpen(true)
   };
 
   const startTimeSet = (date) => {
