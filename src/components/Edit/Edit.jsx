@@ -22,8 +22,6 @@ const Edit = () => {
 
   const [customerDetails, setcustomerDetails] = useState({});
 
-  const [sendDetails, setsendDetails] = useState({});
-
   const [displayDetails, setDisplayDetails] = useState({});
 
   const [selectedUserMail, setselectedUserMail] = useState();
@@ -38,7 +36,8 @@ const Edit = () => {
       adhaarCard: formData.get("exampleInputAdhaar"),
       phoneNo: formData.get("exampleInputMobile"),
     };
-    setsendDetails(details);
+
+    sendValues(details)
   };
 
   useEffect(() => {
@@ -58,34 +57,35 @@ const Edit = () => {
 
   const setAndOpen = (email, adhaarCard, address, phoneNo) => {
     setDisplayDetails({ email, adhaarCard, address, phoneNo });
-    setselectedUserMail(email)
+    setselectedUserMail(email);
     setIsOpen(true);
   };
 
-  const sendValues = async () => {
+  const sendValues = async (details) => {
     const data = {
-      email: sendDetails?.email,
-      phoneNo: parseInt(sendDetails?.phoneNo),
-      address: sendDetails?.address,
-      adhaarCard: parseInt(sendDetails?.adhaarCard),
+      email: details.email,
+      phoneNo: details.phoneNo,
+      address: details.address,
+      adhaarCard: details.adhaarCard,
     };
-    async function changeDetails() {
-      try {
-        const response = await axios.post(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails/updateDetails",
-          data
-        );
-      } catch (error) {
-        console.error(error);
-      }
+    try {
+      const response = await axios.post(
+        "https://serverhillsidehaven-production.up.railway.app/customerDetails/updateDetails",
+        data
+      );
+    } catch (error) {
+      console.error(error);
     }
-    changeDetails();
 
     setTimeout(() => {
       setIsOpen(false);
+      refreshPage();
     }, 2000);
   };
 
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
 
   const displayCustomerDetails = Object.entries(customerDetails).map(
     ([key, item]) => (
@@ -184,14 +184,12 @@ const Edit = () => {
               />
             </div>
 
-            <button
+            <input
               type="submit"
               className="btn btn-primary"
               value="Submit"
-              onClick={() => sendValues()}
-            >
-              Submit
-            </button>
+              name="submit"
+            />
           </form>
         </div>
         <button
