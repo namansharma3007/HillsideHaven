@@ -53,7 +53,7 @@ const Sidebar = () => {
             </li>
             <li className="nav-item">
               <Link title="Refund & Payment" className="nav-link" to={`/refund`}>
-                Refund & Payment
+              ₹ Refund & Payment
               </Link>
             </li>
           </ul>

@@ -76,7 +76,7 @@ const Checkout = () => {
 
   return (
     <section className="container checkout-container">
-      <h3>₹ Checkout</h3>
+      <h3>Checkout</h3>
 
       <select
         className="form-select form-select-sm form-select-container"

@@ -65,7 +65,7 @@ const Refund = () => {
 
   return (
     <section className="container refund-container">
-      <h3>Refunds or Additional charges</h3>
+      <h3>₹ Refund or Additional charge payment</h3>
 
       <form onSubmit={handleSubmit} className="form-refund-pay">
         <select className="form-select select-mail-dropdown-refund" aria-label="Default select example" required>
