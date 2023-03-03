@@ -112,7 +112,7 @@ const Book = () => {
     
   
     if(dataReceivedFilterd.length > 0){
-      alert("Rooms and timings are overlaping please check previous bookings")
+      alert("This time slot is already booked. Please, refer previous bookings!")
       return;
     }
 
