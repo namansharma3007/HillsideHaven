@@ -2,6 +2,8 @@ import "./Edit.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Modal from "react-modal";
+import EditDetails from "./EditDetails/EditDetails";
+import {Link} from 'react-router-dom';
 
 Modal.setAppElement("#root");
 
@@ -58,7 +60,9 @@ const Edit = () => {
   const setAndOpen = (email, adhaarCard, address, phoneNo) => {
     setDisplayDetails({ email, adhaarCard, address, phoneNo });
     setselectedUserMail(email);
-    setIsOpen(true);
+    
+    EditDetails({ email, adhaarCard, address, phoneNo });
+
   };
 
   const sendValues = async (details) => {
@@ -100,14 +104,14 @@ const Edit = () => {
           <span>Adhaar Card: {item.adhaarCard}</span>
           <span>Address: {item.address}</span>
         </div>
-        <button
+        <Link to={`/edit/${selectedUserMail}`}
           className="btn btn-danger btn-edit-details"
           onClick={() =>
             setAndOpen(item.email, item.adhaarCard, item.address, item.phoneNo)
           }
         >
           Edit Details
-        </button>
+        </Link>
       </li>
     )
   );
@@ -128,7 +132,7 @@ const Edit = () => {
         </ul>
       </div>
 
-      <Modal isOpen={modalIsOpen} style={customStyles}>
+      {/* <Modal isOpen={modalIsOpen} style={customStyles}>
         <div className="details">
           <p>Email: {displayDetails.email}</p>
           <p>Mobile: {displayDetails.phoneNo}</p>
@@ -198,7 +202,7 @@ const Edit = () => {
         >
           X
         </button>
-      </Modal>
+      </Modal> */}
     </section>
   );
 };

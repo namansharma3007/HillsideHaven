@@ -7,6 +7,7 @@ import Edit from './components/Edit/Edit';
 import Navbar from './components/Navbar/Navbar';
 import Refund from './components/Refund/Refund';
 import Checkout from './components/Checkout/Checkout';
+import EditDetails from './components/Edit/EditDetails/EditDetails'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/edit" element={<Edit />} />
         <Route path="/refund" element={<Refund />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/edit/:email" element={<EditDetails/>} />
       </Routes>
     </div>
   );
