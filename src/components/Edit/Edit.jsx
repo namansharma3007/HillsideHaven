@@ -94,7 +94,7 @@ const Edit = () => {
         key={key}
       >
         <div>
-          <span>{item.name}</span>
+          <span>Name: {item.name}</span>
           <span>Email: {item.email}</span>
           <span>Mobile No: {item.phoneNo}</span>
           <span>Adhaar Card: {item.adhaarCard}</span>
