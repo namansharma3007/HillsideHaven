@@ -58,7 +58,7 @@ const Edit = () => {
   const setAndOpen = (email, adhaarCard, address, phoneNo) => {
     setDisplayDetails({ email, adhaarCard, address, phoneNo });
     setselectedUserMail(email);
-    setIsOpen(true);
+    setIsOpen(true)
   };
 
   const sendValues = async (details) => {

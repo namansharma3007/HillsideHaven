@@ -46,13 +46,15 @@ const Cancel = () => {
     fetchData();
   }, []);
 
-  const handleOpen = (item) => {
+  const handleOpen = async (item) => {
     setPenaltyCustomer(item);
     setRoomNos(item.rooms);
+    const amount = await calculatePenalty(item);
+    
     setTimeout(() => {
-      const amount = calculatePenalty();
       setPenaltyAmount(amount);
     }, 1000);
+    
     setTimeout(() => {
       setIsOpen(true);
     }, 800);
@@ -81,17 +83,18 @@ const Cancel = () => {
     }, 800);
   };
 
-  const calculatePenalty = () => {
-    const date1 = new Date(penaltyCustomer.endTime);
+  const calculatePenalty = async (item) => {
+    const date1 = new Date(item.startTime);
     const date2 = new Date(currentTimeSet());
     const diff = date1 - date2; // Difference in milliseconds
 
     const hours = diff / (1000 * 60 * 60);
     var sum = 0;
+
     if (hours >= 24 && hours <= 48) {
-      sum = penaltyCustomer.totalAmount / 2;
-    } else if (hours > 48) {
-      sum = penaltyCustomer.totalAmount;
+      sum = item.totalAmount / 2;
+    } else if (hours < 24) {
+      sum = item.totalAmount;
     }
     return sum;
   };
