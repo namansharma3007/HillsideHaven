@@ -20,7 +20,7 @@ const Home = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/bookingDetails"
+          "https://serverhillsidehaven-production.up.railway.app/bookingDetails",
         );
         setDataBooking(response.data.data[0]);
       } catch (error) {
@@ -46,7 +46,7 @@ const Home = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails"
+          "https://serverhillsidehaven-production.up.railway.app/customerDetails",
         );
         setToatlbookings(response.data.data.length);
       } catch (error) {
