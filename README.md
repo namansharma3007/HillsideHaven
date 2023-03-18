@@ -4,7 +4,7 @@
 This is a hotel management website built using React and Node.js. The website allows the admin to manage bookings, checkouts, refunds, and payments. It also includes a beautiful and responsive dashboard with filters to sort details.
 
 ## Website URL 🧑‍💻
-* This site was hosted using **_Netlify_** [Hillside Haven](https://hillsidehavenhotel.netlify.app/)
+<code>https://hillsidehavenhotel.netlify.app/</code>
 
 ## Features 🔥
 * Create, edit, and cancel bookings
