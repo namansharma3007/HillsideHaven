@@ -35,7 +35,7 @@ const Cancel = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails/"
+          "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/"
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
@@ -64,7 +64,7 @@ const Cancel = () => {
     const email = penaltyCustomer?.email;
     try {
       const response = await axios.post(
-        "https://serverhillsidehaven-production.up.railway.app/customerDetails/removedetails",
+        "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/removedetails",
         { email }
       );
     } catch (error) {
@@ -113,7 +113,7 @@ const Cancel = () => {
       const totalAmount = -refundAmountVal;
       try {
         const response = await axios.post(
-          "https://serverhillsidehaven-production.up.railway.app/bookingDetails/updateDetails",
+          "https://inquisitive-bear-gaiters.cyclic.app/bookingDetails/updateDetails",
           { totalAmount }
         );
       } catch (error) {

@@ -20,7 +20,7 @@ const Home = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/bookingDetails",
+          "https://inquisitive-bear-gaiters.cyclic.app/bookingDetails",
         );
         setDataBooking(response.data.data[0]);
       } catch (error) {
@@ -32,7 +32,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsFilter", {
+    fetch("https://inquisitive-bear-gaiters.cyclic.app/customerDetails/detailsFilter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sendDataBackFilter),
@@ -46,7 +46,7 @@ const Home = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails",
+          "https://inquisitive-bear-gaiters.cyclic.app/customerDetails",
         );
         setToatlbookings(response.data.data.length);
       } catch (error) {

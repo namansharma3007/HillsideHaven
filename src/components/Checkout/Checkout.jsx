@@ -13,7 +13,7 @@ const Checkout = () => {
     const email = selectedUserDetails?.email;
     try {
       const response = await axios.post(
-        "https://serverhillsidehaven-production.up.railway.app/customerDetails/removedetails",
+        "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/removedetails",
         { email }
       );
     } catch (error) {
@@ -32,7 +32,7 @@ const Checkout = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails/"
+          "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/"
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
@@ -49,7 +49,7 @@ const Checkout = () => {
         const email = selectedUser;
         try {
           const response = await axios.post(
-            "https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsEmail",
+            "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/detailsEmail",
             { email }
           );
           setSelectedUserDetails(response.data.data[0]);

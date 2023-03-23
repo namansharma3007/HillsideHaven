@@ -74,7 +74,7 @@ const Book = () => {
     var response;
     try{
       response = await axios.post(
-        "https://serverhillsidehaven-production.up.railway.app/customerDetails/detailsFilter",
+        "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/detailsFilter",
         data
       );
     } catch(err){
@@ -152,7 +152,7 @@ const Book = () => {
       const data = customerDetails;
       try {
         const response = await axios.put(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails/saveCustomerDetails",
+          "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/saveCustomerDetails",
           data
         );
       } catch (error) {
@@ -165,7 +165,7 @@ const Book = () => {
       const totalAmount = parseInt(customerDetails?.totalAmount);
       try {
         const response = await axios.post(
-          "https://serverhillsidehaven-production.up.railway.app/bookingDetails/updateDetails",
+          "https://inquisitive-bear-gaiters.cyclic.app/bookingDetails/updateDetails",
           { totalAmount }
         );
       } catch (error) {

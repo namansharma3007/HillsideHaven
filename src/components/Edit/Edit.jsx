@@ -44,7 +44,7 @@ const Edit = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails/"
+          "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/"
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
@@ -70,7 +70,7 @@ const Edit = () => {
     };
     try {
       const response = await axios.post(
-        "https://serverhillsidehaven-production.up.railway.app/customerDetails/updateDetails",
+        "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/updateDetails",
         data
       );
     } catch (error) {

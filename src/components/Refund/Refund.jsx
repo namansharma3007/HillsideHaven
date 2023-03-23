@@ -12,7 +12,7 @@ const Refund = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://serverhillsidehaven-production.up.railway.app/customerDetails/"
+          "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/"
         );
         setcustomerDetails(response.data.data);
       } catch (error) {
@@ -45,7 +45,7 @@ const Refund = () => {
       const totalAmount = val * amountSendBack;
       try {
         const response = await axios.post(
-          "https://serverhillsidehaven-production.up.railway.app/bookingDetails/updateDetails",
+          "https://inquisitive-bear-gaiters.cyclic.app/bookingDetails/updateDetails",
           { totalAmount }
         );
       } catch (error) {
