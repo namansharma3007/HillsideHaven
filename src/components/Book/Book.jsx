@@ -1,5 +1,5 @@
 import "./Book.css";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import SEND_EMAIL from "../SendEmail";
@@ -17,14 +17,12 @@ const customStyles = {
   },
 };
 const Book = () => {
-
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
   const [minDate, setMinDate] = useState(
     new Date().toISOString().split("T")[0]
   );
-
 
   const [customerDetails, setcustomerDetails] = useState({
     name: "",
@@ -40,8 +38,6 @@ const Book = () => {
     rooms: [],
     totalAmount: "",
   });
-
-
 
   const roomsNos = ["A1", "A2", "B1", "B2", "B3", "C1", "C2", "C3", "C4", "C5"];
 
@@ -62,7 +58,7 @@ const Book = () => {
       </div>
     );
   }
-  
+
   const checkOverlappingBooking = async (newBooking) => {
     const data = {
       roomType: "",
@@ -72,16 +68,16 @@ const Book = () => {
     };
 
     var response;
-    try{
+    try {
       response = await axios.post(
         "https://inquisitive-bear-gaiters.cyclic.app/customerDetails/detailsFilter",
         data
       );
-    } catch(err){
-      console.err(err)
+    } catch (err) {
+      console.err(err);
     }
     const existingBookings = response.data.data;
-    
+
     return existingBookings;
   };
 
@@ -108,14 +104,14 @@ const Book = () => {
       rooms: rooms,
     };
 
-    const dataReceivedFilterd = await checkOverlappingBooking(details)
-    
-  
-    if(dataReceivedFilterd.length > 0){
-      alert("This time slot is already booked. Please, refer previous bookings!")
+    const dataReceivedFilterd = await checkOverlappingBooking(details);
+
+    if (dataReceivedFilterd.length > 0) {
+      alert(
+        "This time slot is already booked. Please, refer previous bookings!"
+      );
       return;
     }
-
 
     const diff = details.endTime - details.startTime; // Difference in milliseconds
     const hours = diff / (1000 * 60 * 60); // Convert milliseconds to hours
@@ -134,7 +130,7 @@ const Book = () => {
     details["totalAmount"] = sum;
 
     setcustomerDetails(details);
-    setIsOpen(true)
+    setIsOpen(true);
   };
 
   const startTimeSet = (date) => {
@@ -176,11 +172,10 @@ const Book = () => {
     setTotalPrice();
 
     setTimeout(() => {
-      alert("Your room has been booked...")
-      SEND_EMAIL(customerDetails)
+      alert("Your room has been booked...");
+      SEND_EMAIL(customerDetails);
       setIsOpen2(false);
     }, 1000);
-   
   };
 
   const handleSubmitPayment = () => {
